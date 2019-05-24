@@ -1,0 +1,43 @@
+@mixin flex($direction, $wrap) {
+    display: flex;
+    flex-flow: $direction $wrap;
+    justify-content: center;
+  }
+  
+  @mixin scale($zoom) {
+    transition: $transition;
+    &:hover {
+      transform: scale($zoom);
+    }
+  }
+  
+  $transition: 0.3s ease-in-out all;
+  
+  .search {
+    .mat-form-field {
+      width: 90%;
+      margin: 0 auto;
+      font-size: 24px;
+      display: block;
+    }
+  }
+  
+  .cards {
+    @include flex(row, wrap);
+    justify-content: space-between;
+    .mat-card {
+      width: 18%;
+      margin: 2% 0.5%;
+      padding: 1%;
+      img {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        transition: $transition;
+        &:hover {
+          @include scale(1.02);
+        }
+      }
+    }
+  }
+  
